@@ -19,13 +19,9 @@ public class App {
         Arrays.sort(pessoas);
         System.out.println(Arrays.toString(pessoas));
 
-        Arrays.sort(pessoas, new Comparator<Pessoa>() {
-        @Override
-            public int compare(Pessoa p1, Pessoa p2) {
-                return p1.getNascimento()
-                        .compareTo(p2.getNascimento());
-            }
-        });
+        Arrays.sort(pessoas,
+                Comparator.comparing(Pessoa::getNascimento)
+        );
         System.out.println(Arrays.toString(pessoas));
     }
 
