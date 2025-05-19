@@ -19,18 +19,14 @@ public class App {
         Arrays.sort(pessoas);
         System.out.println(Arrays.toString(pessoas));
 
-        OrdenadorNascimento ordenadorNascimento
-                = new OrdenadorNascimento();
-        Arrays.sort(pessoas, ordenadorNascimento);
-        System.out.println(Arrays.toString(pessoas));
-    }
-
-    static class OrdenadorNascimento implements Comparator<Pessoa> {
+        Arrays.sort(pessoas, new Comparator<Pessoa>() {
         @Override
-        public int compare(Pessoa p1, Pessoa p2) {
-            return p1.getNascimento()
-                    .compareTo(p2.getNascimento());
-        }
+            public int compare(Pessoa p1, Pessoa p2) {
+                return p1.getNascimento()
+                        .compareTo(p2.getNascimento());
+            }
+        });
+        System.out.println(Arrays.toString(pessoas));
     }
 
 }
